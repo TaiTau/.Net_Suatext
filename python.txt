@@ -1,0 +1,25 @@
+﻿using System;
+using Python.Runtime;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Diagnostics;
+using System.Collections.Generic;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (Py.GIL())
+            {
+                dynamic np = Py.Import("numpy");
+                dynamic cv2 = Py.Import("cv2");
+                dynamic i = cv2.imread("D:\\Ảnh của Đức\\ChiHuyen.jpg");
+                cv2.imshow("anh la", i);
+                cv2.waitKey(0);
+            }
+        }
+    }
+}
